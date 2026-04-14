@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vamshi ❤️ Likitha - Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Great+Vibes&family=Marcellus&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Traditional Indian Wedding Palette */
+            --color-primary-red: #8B0000; /* Deep Maroon/Red */
+            --color-secondary-gold: #FFD700; /* Pure Gold */
+            --color-accent-pink: #FF69B4; /* Deep Pink */
+            --color-background-cream: #FFF8E1; /* Light Creamy Background */
+            --color-text-dark: #333333;
+        }
+
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Marcellus', serif;
+            color: var(--color-text-dark);
+            background-color: var(--color-background-cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Container for content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Utility Classes */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--color-primary-red);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-secondary-gold);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- ATTRACTIVE BUTTON STYLES (Restored) --- */
+        .btn-primary {
+            /* Base Style */
+            background-color: var(--color-primary-red);
+            color: var(--color-background-cream);
+            border: 3px solid var(--color-primary-red);
+            
+            /* Enhance look with subtle gradient and deeper shadow */
+            background-image: linear-gradient(to bottom, var(--color-primary-red), #660000);
+            box-shadow: 0 6px 10px rgba(139, 0, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            /* Hover Effect */
+            background-color: var(--color-secondary-gold);
+            color: var(--color-primary-red);
+            border-color: var(--color-secondary-gold);
+            transform: translateY(-3px); /* Slightly more lift */
+            box-shadow: 0 8px 15px rgba(255, 215, 0, 0.6); /* Gold glow on hover */
+            background-image: none;
+        }
+        /* --- END ATTRACTIVE BUTTON STYLES --- */
+
+
+        /* Animations: Floating Hearts & Petals */
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        .petal, .heart {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: var(--color-accent-pink);
+            border-radius: 50%;
+            opacity: 0;
+            animation: fall linear infinite;
+        }
+
+        .heart {
+            background: none;
+            color: var(--color-primary-red);
+            font-size: 1.2em;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            100% {
+                transform: translateY(100vh) translateX(5vw) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Background Pattern Decoration */
+        .section {
+            padding: 80px 0;
+            position: relative;
+            z-index: 2; 
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><path id="petal" d="M 50,0 C 50,20 60,30 50,50 C 40,30 50,20 50,0 Z" fill="%238B0000" opacity="0.3"/></defs><rect width="100%" height="100%" fill="%23FFF8E1"/><use href="%23petal" transform="translate(10,10) rotate(0)"/><use href="%23petal" transform="translate(10,10) rotate(90)"/><use href="%23petal" transform="translate(10,10) rotate(180)"/><use href="%23petal" transform="translate(10,10) rotate(270)"/></svg>');
+            background-size: 400px;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        /* Smooth Scroll Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- 1. Hero Section --- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-image: linear-gradient(rgba(255, 248, 225, 0.8), rgba(255, 248, 225, 0.8)), url('https://picsum.photos/1920/1080?wedding-bg'); /* Placeholder BG */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-content {
+            z-index: 10;
+            color: var(--color-primary-red);
+            padding: 20px;
+            border: 5px double var(--color-secondary-gold);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-content h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5em;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px var(--color-accent-pink);
+        }
+
+        .hero-content h1 span {
+            font-size: 0.8em;
+            color: var(--color-accent-pink);
+            margin: 0 10px;
+        }
+
+        .hero-content p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em;
+            margin-top: 10px;
+            color: var(--color-text-dark);
+        }
+
+        /* --- 2. Our Story (RESTORED) --- */
+        #our-story {
+            text-align: center;
+            background-color: #FDF5E6; /* Slightly different cream */
+        }
+
+        .story-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2em;
+            font-style: italic;
+            padding: 20px;
+            border-left: 5px solid var(--color-secondary-gold);
+            border-right: 5px solid var(--color-secondary-gold);
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* --- 3. Wedding Events (RESTORED) --- */
+        #events {
+            background-color: var(--color-background-cream);
+        }
+
+        .event-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+        }
+
+        .event-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            border: 3px solid var(--color-secondary-gold);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .event-card h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primary-red);
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .event-card p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .event-card .time {
+            font-weight: bold;
+            color: var(--color-accent-pink);
+            font-size: 1.2em;
+        }
+
+        .event-animation img {
+            width: 100%;
+            max-height: 250px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #eee;
+        }
+
+        /* --- 4. Photo Gallery (RESTORED) --- */
+        #gallery {
+            background-color: #FDF5E6;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- 5. Countdown Timer (RESTORED) --- */
+        #countdown {
+            text-align: center;
+            padding: 50px 0;
+            background-color: var(--color-primary-red);
+            color: var(--color-background-cream);
+            border-top: 5px solid var(--color-secondary-gold);
+            border-bottom: 5px solid var(--color-secondary-gold);
+        }
+
+        #countdown .section-title {
+            color: var(--color-background-cream);
+        }
+
+        #timer {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .time-unit {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 100px;
+        }
+
+        .time-unit span {
+            display: block;
+            font-size: 3em;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            color: var(--color-secondary-gold);
+        }
+
+        .time-unit p {
+            text-transform: uppercase;
+            font-size: 1em;
+            margin-top: 5px;
+        }
+
+        /* --- 7. Venue Section --- */
+        #venue {
+            text-align: center;
+        }
+
+        .venue-info {
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+
+        /* Ensure Get Directions link uses button styling */
+        .venue-info a {
+            font-weight: normal; 
+        }
+
+        #google-map {
+            width: 100%;
+            height: 400px;
+            border: 5px solid var(--color-secondary-gold);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* --- 9. Share Buttons --- */
+        #share-save {
+            text-align: center;
+            padding-bottom: 80px;
+            border-top: 1px dashed #ccc;
+        }
+
+        /* --- Music Toggle (Optional) --- */
+        #music-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--color-primary-red);
+            color: var(--color-background-cream);
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        #music-toggle:hover {
+            background-color: var(--color-accent-pink);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--color-primary-red);
+            color: var(--color-background-cream);
+            font-size: 0.9em;
+        }
+
+        /* Media Queries for Responsiveness (RESTORED) */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.5em;
+            }
+
+            .hero-content h1 {
+                font-size: 3.5em;
+            }
+
+            .hero-content p {
+                font-size: 1.2em;
+            }
+
+            .event-grid { 
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #timer { 
+                flex-wrap: wrap;
+            }
+
+            .time-unit { 
+                min-width: 80px;
+                padding: 15px;
+            }
+
+            .time-unit span { 
+                font-size: 2em;
+            }
+
+            .gallery-grid { 
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="wedding-music" loop muted>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <button id="music-toggle" title="Toggle Music">🎶</button>
+
+    <div class="animated-background" id="animation-layer"></div>
+    <section id="hero">
+        <div class="hero-content scroll-reveal">
+            <p>The Wedding of</p>
+            <h1>Vamshi <span>❤️</span> Likitha</h1>
+            <p>May 7th & 8th, 2026</p>
+            <p>Our wedding would be quite incomplete without your presence. We hope to see you at venue!</p>
+        </div>
+    </section>
+
+    <section id="countdown" class="section">
+        <div class="container scroll-reveal">
+            <h2 class="section-title">Counting The Days</h2>
+            <div id="timer">
+                <div class="time-unit">
+                    <span id="days">00</span>
+                    <p>Days</p>
+                </div>
+                <div class="time-unit">
+                    <span id="hours">00</span>
+                    <p>Hours</p>
+                </div>
+                <div class="time-unit">
+                    <span id="minutes">00</span>
+                    <p>Minutes</p>
+                </div>
+                <div class="time-unit">
+                    <span id="seconds">00</span>
+                    <p>Seconds</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-story" class="section">
+        <div class="container scroll-reveal">
+            <h2 class="section-title">Our Story</h2>
+            <p class="story-text">“Two souls, one journey. With love, laughter, and countless memories, we invite you to celebrate our big day!”</p>
+        </div>
+    </section>
+
+    <section id="events" class="section">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Wedding Events</h2>
+            <div class="event-grid">
+                <div class="event-card scroll-reveal">
+                    <h3>Reception</h3>
+                    <p><strong>Date:</strong> May 7th, 2026</p>
+                    <p class="time">7:30 PM onwards</p>
+                    <div class="event-animation">
+                        <img src="Recep.jpg" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="event-card scroll-reveal">
+                    <h3>Muhurtham</h3>
+                    <p><strong>Date:</strong> May 8th, 2026</p>
+                    <p class="time">6:30 AM – 07:30 AM</p>
+                    <p>Please arrive early to witness the sacred moment.</p>
+                    <div class="event-animation">
+                        <img src="Muh.jpg" alt="Traditional Indian Marriage" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="share-save" class="section">
+        <div class="container scroll-reveal">
+            <h2 class="section-title">Spread the Joy!</h2>
+            <a href="javascript:void(0);" onclick="saveToCalendar()" class="btn btn-primary">🗓️ Save the Date</a>
+            <a id="whatsapp-share" href="#" target="_blank" class="btn btn-primary">📱 Share on WhatsApp</a>
+        </div>
+    </section>
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item scroll-reveal"><img src="image1.jpg" alt="Couple Photo 1" loading="lazy"></div>
+                <div class="gallery-item scroll-reveal"><img src="image2.jpg" alt="Couple Photo 2" loading="lazy"></div>
+                <div class="gallery-item scroll-reveal"><img src="image3.jpg" alt="Couple Photo 3" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="venue" class="section">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Venue</h2>
+            <p class="venue-info scroll-reveal">
+                We request your gracious presence at:
+                <br>
+                <strong>Maha Lakshmi Convention Centre, Kadapa</strong>
+                <br>
+                <a href="https://maps.app.goo.gl/7AtmuCfocWq9gWs79" target="_blank" class="btn btn-primary">📍 Get Directions</a>
+            </p>
+            <div id="google-map" class="scroll-reveal">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15336.56811440788!2d78.80486827014167!3d14.475658602263435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb3980eb6d8f8a1%3A0x6b77227d894b9176!2sTTD%20Kalyana%20Mandapam!5e0!3m2!1sen!2sin!4v1678896000000!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>© 2025 Sridhar & Supraja. Invitation with Love and Blessings.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const weddingDate = new Date("May 7, 2026 19:30:00").getTime();
+            const timer = document.getElementById('timer');
+            const daysSpan = document.getElementById('days');
+            const hoursSpan = document.getElementById('hours');
+            const minutesSpan = document.getElementById('minutes');
+            const secondsSpan = document.getElementById('seconds');
+            const animationLayer = document.getElementById('animation-layer');
+            const musicToggle = document.getElementById('music-toggle');
+            const music = document.getElementById('wedding-music');
+            
+            // Auto-Scroll Variables
+            let scrollInterval = null;
+            let autoScrollAttempted = false;
+            const scrollSpeed = 30; // Pixels to scroll per interval
+            const scrollDelay = 300; // Milliseconds between scroll steps
+            const initialDelay = 5000; // 10000ms = 5 seconds delay 
+
+            // --- Countdown Timer Logic ---
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = weddingDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    timer.innerHTML = "<h2>The celebration is underway!</h2>";
+                } else {
+                    daysSpan.textContent = String(days).padStart(2, '0');
+                    hoursSpan.textContent = String(hours).padStart(2, '0');
+                    minutesSpan.textContent = String(minutes).padStart(2, '0');
+                    secondsSpan.textContent = String(seconds).padStart(2, '0');
+                }
+            }
+            const countdownInterval = setInterval(updateCountdown, 1000);
+            updateCountdown(); // Initial call
+
+            // --- Auto Scroll Logic ---
+            function startAutoScroll() {
+                // Only start if not already running
+                if (!scrollInterval) {
+                    scrollInterval = setInterval(function() {
+                        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                        
+                        if (window.scrollY >= maxScroll - 50) { 
+                            // Stop scrolling when at the bottom
+                            stopAutoScroll(); 
+                            // Scroll back to top after a short delay (8 seconds)
+                            setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 8000);
+                            // Restart auto-scroll after reset (10 seconds total delay)
+                            setTimeout(startAutoScroll, 10000); 
+                        } else {
+                            // Scroll down slowly
+                            window.scrollBy({ top: scrollSpeed, left: 0, behavior: 'smooth' });
+                        }
+                    }, scrollDelay);
+                }
+            }
+
+            function stopAutoScroll() {
+                if (scrollInterval) {
+                    clearInterval(scrollInterval);
+                    scrollInterval = null;
+                }
+            }
+
+            // Function to handle the start attempt after the delay
+            function handleInitialStart() {
+                autoScrollAttempted = true;
+                // Check if user has scrolled manually (e.g., more than 50px away from the top)
+                if (window.scrollY < 50) {
+                    startAutoScroll();
+                } 
+            }
+            
+            // 1. Start attempt after the defined initialDelay (10 seconds)
+            const initialTimer = setTimeout(handleInitialStart, initialDelay);
+
+            // 2. Stop auto-scroll permanently on any user interaction
+            const stopEvents = ['wheel', 'touchstart', 'keydown', 'mousedown'];
+            stopEvents.forEach(event => {
+                // Stop the auto-scroll interval if it is running
+                window.addEventListener(event, stopAutoScroll, { once: true }); 
+                
+                // If user interacts before the initial timer runs, clear the timer
+                window.addEventListener(event, () => {
+                    if (!autoScrollAttempted) {
+                        clearTimeout(initialTimer);
+                        autoScrollAttempted = true; // Mark as handled to prevent start
+                    }
+                }, { once: true });
+            });
+
+
+            // --- Floating Hearts & Petals Animation ---
+            function createFloatingElement(type) {
+                const element = document.createElement('div');
+                element.classList.add(type);
+                if (type === 'heart') {
+                    element.innerHTML = '♥'; // HTML heart entity
+                }
+                
+                const size = Math.random() * 10 + 10; // 10px to 20px
+                const duration = Math.random() * 15 + 10; // 10s to 25s
+                
+                element.style.left = Math.random() * 100 + 'vw';
+                element.style.width = size + 'px';
+                element.style.height = size + 'px';
+                element.style.animationDuration = duration + 's';
+                element.style.animationDelay = Math.random() * -duration + 's'; // Start at different points
+                
+                animationLayer.appendChild(element);
+
+                // Clean up element after it falls
+                setTimeout(() => element.remove(), duration * 1000);
+            }
+
+            // Create hearts and petals continuously
+            setInterval(() => createFloatingElement('heart'), 1000); // More hearts
+            setInterval(() => createFloatingElement('petal'), 500); // More petals
+
+            // --- Music Toggle (Optional) ---
+            musicToggle.addEventListener('click', () => {
+                if (music.paused) {
+                    music.muted = false;
+                    music.play();
+                    musicToggle.textContent = '🔇';
+                    musicToggle.title = 'Mute Music';
+                } else {
+                    music.muted = true;
+                    music.pause();
+                    musicToggle.textContent = '🎶';
+                    musicToggle.title = 'Play Music';
+                }
+            });
+
+            // --- Smooth Scroll Animations (Intersection Observer) ---
+            const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+            
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Stop observing once visible
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1, // Element is visible by 10%
+                rootMargin: '0px 0px -50px 0px' // Load slightly early
+            });
+
+            scrollRevealElements.forEach(el => observer.observe(el));
+
+
+            // --- Save-the-Date Function (Basic ICS/Google Calendar Link) ---
+            window.saveToCalendar = function() {
+                const title = "Vamshi & Likitha Wedding!";
+                const description = "Reception and Orchestra for Vamshi & Likitha's wedding. Followed by Muhurtham on May 8th.";
+                const location = "Maha Lakshmi Convention Center, Kadapa";
+
+                // Dates for Oct 16th, 7:30 PM
+                const dateStart = new Date(2026, 4, 7, 19, 30, 0); // Month is 0-indexed (9 for October)
+                const dateEnd = new Date(2026, 4, 8, 11, 0, 0); // End time placeholder
+
+                const formatTime = (date) => {
+                    // YYYYMMDDTHHMMSS (Local time used here)
+                    const pad = (n) => String(n).padStart(2, '0');
+                    return `${date.getFullYear()}${pad(date.getMonth() + 1)}${pad(date.getDate())}T${pad(date.getHours())}${pad(date.getMinutes())}00`;
+                };
+
+                const startFormatted = formatTime(dateStart);
+                const endFormatted = formatTime(dateEnd);
+
+                // Simple Google Calendar Link
+                const googleCalLink = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startFormatted}/${endFormatted}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}&sf=true&output=xml`;
+
+                window.open(googleCalLink, '_blank');
+            }
+            
+            // --- WhatsApp Share Button Logic ---
+            window.onload = function() {
+                const message = encodeURIComponent(`You're invited to the wedding of Vamshi ❤️ Likitha!
+Dates: May 7th & 8th, 2026
+Venue: Maha Lakshmi Convention Centre, Kadapa.
+Find all the details here: ${window.location.href}`); 
+
+                const whatsappURL = `https://wa.me/?text=${message}`;
+                document.getElementById('whatsapp-share').href = whatsappURL;
+            };
+
+        });
+    </script>
+</body>
+</html>
+
